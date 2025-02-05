@@ -30,7 +30,7 @@ public class PersonageClient {
 
             return mapper.readValue(response.body(), ResponseDto.class);
         } catch (IOException | InterruptedException e) {
-            throw new RuntimeException("Failed to get data.", e);
+            throw new RuntimeException("An unexpected error occurred while getting data: " + e.getMessage(), e);
         }
     }
 }

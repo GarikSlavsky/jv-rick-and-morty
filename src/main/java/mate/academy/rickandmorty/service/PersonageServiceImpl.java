@@ -39,7 +39,11 @@ public class PersonageServiceImpl implements PersonageService {
     }
 
     private long randomLongGenerator() {
-        Supplier<Long> generator = () -> new Random().nextLong(DataFetcher.numberOfPersonages);
+        Supplier<Long> generator = () -> new Random().nextLong(countRowsInTable());
         return generator.get();
+    }
+
+    private long countRowsInTable() {
+        return personageRepository.count();
     }
 }

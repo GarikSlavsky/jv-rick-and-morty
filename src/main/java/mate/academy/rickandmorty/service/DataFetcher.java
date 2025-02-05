@@ -14,7 +14,6 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class DataFetcher {
-    protected static int numberOfPersonages;
     private final PersonageRepository personageRepository;
     private final PersonageMapper personageMapper;
     private final PersonageClient personageClient;
@@ -35,7 +34,7 @@ public class DataFetcher {
             allPersonages.addAll(responseDto.getResults());
             nextPageUrl = responseDto.getInfo().next();
         }
-        numberOfPersonages = responseDto.getInfo().count();
+
         return allPersonages;
     }
 
